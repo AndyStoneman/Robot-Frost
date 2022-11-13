@@ -1,3 +1,25 @@
+# Mission 6
+Github Link: https://github.com/AndyStoneman/M6-PoetrySlam
 
+## System Name: TBD
+### Submission Date: 11/17/2022
 
-This is a test!
+## Project Description:
+
+Web Scraping inspiration: https://towardsdatascience.com/creating-a-poems-generator-using-word-embeddings-bcc43248de4f
+
+Inspired by Robert Frost, this system aims to generate poetry similar to Frost's style, 
+embodying his beautiful descriptions of rural New England, and his thought-provoking
+language. 
+
+Here's how the system will work:
+1) Scrape the web for a ton of Robert Frost poetry content, and save it into a csv file. 
+2) Pick n words for description choices, and rank every poem's similarity to each of the chosen words
+3) Generate new poem that has a higher similarity ranking to the inputted word than one of the initially inputted poems
+   1) Find two lines with the highest similarity threshold and combine them to form one child line. repeat until
+   desired number of lines reached.
+   2) At specified probability, replace either noun or verb in line with synonym or synonymous phrase
+   3) Add one more unique modifier 
+4) Return new poem that is inspired by Frost but more similar to a particular inputted word than any of the poems in the file
+5) Read poem aloud
+6) Save poem in .csv file. 
