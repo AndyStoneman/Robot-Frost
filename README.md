@@ -16,10 +16,12 @@ Here's how the system will work:
 1) Scrape the web for a ton of Robert Frost poetry content, and save it into a csv file. 
 2) Pick n words for description choices, and rank every poem's similarity to each of the chosen words
 3) Generate new poem that has a higher similarity ranking to the inputted word than one of the initially inputted poems
-   1) Find two lines with the highest similarity threshold and combine them to form one child line. repeat until
-   desired number of lines reached.
+   1) Randomly select two lines until either both are above or their average is above the threshold of all poems for 
+   particular input word. Then combine them to form a new child line. Repeat until desired number of lines reached, 
+   careful to not repeat any lines already used. 
    2) At specified probability, replace either noun or verb in line with synonym or synonymous phrase
    3) Add one more unique modifier 
+   4) If the description word is the same as a word in the line, change the word in the line to a synonym
 4) Return new poem that is inspired by Frost but more similar to a particular inputted word than any of the poems in the file
 5) Read poem aloud
 6) Save poem in .csv file. 

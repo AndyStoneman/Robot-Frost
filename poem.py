@@ -12,6 +12,9 @@ class Poem:
     def get_verses(self):
         return self.verses
 
+    def get_similarity(self):
+        return self.similarity
+
     def __repr__(self):
         """Lets us make an object of the same value."""
         return "Poem('{0}' | '{1}' similarity threshold = {2})\n".format(
