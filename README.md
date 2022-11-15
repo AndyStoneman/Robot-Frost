@@ -7,6 +7,7 @@ Github Link: https://github.com/AndyStoneman/M6-PoetrySlam
 ## Project Description:
 
 Web Scraping inspiration: https://towardsdatascience.com/creating-a-poems-generator-using-word-embeddings-bcc43248de4f
+Autocorrect: https://github.com/filyp/autocorrect
 
 Inspired by Robert Frost, this system aims to generate poetry similar to Frost's style, 
 embodying his beautiful descriptions of rural New England, and his thought-provoking

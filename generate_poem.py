@@ -1,7 +1,8 @@
 class GeneratePoem:
 
-    def __init__(self, poem):
-        self.poem = poem
+    def __init__(self, description_word):
+        self.description_word = description_word
+
 
     def __str__(self):
         final_string = ''
