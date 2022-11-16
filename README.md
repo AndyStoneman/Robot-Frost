@@ -25,3 +25,13 @@ Here's how the system will work:
 4) Return new poem that is inspired by Frost but more similar to a particular inputted word than any of the poems in the file
 5) Read poem aloud
 6) Ask user if they like poem, and if so save it. If not, ask if they want to try again. 
+
+
+## TODO:
+1. Try to make the poems a little more readable
+   A) Introduce a probability that causes a direct frost line to be put into the poem when not triggered
+   B) Add another unique way of changing the lines
+2. Create a format_poem() method that makes the poem a little more attractive to read 
+3. Clean up all methods so that they're readable and elegant 
+4. Insert comments for all methods
+5. Make the input writing a little more interesting/exciting

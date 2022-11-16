@@ -1,11 +1,13 @@
 import spacy
 
+
 class Poem:
-    def __init__(self, title, text, description_word):
+    def __init__(self, title, text, description_word, nlp):
         self.title = title
         self.text = text
         self.description_word = description_word
         self.similarity = -1.0
+        self.nlp = nlp
 
     def get_text(self):
         return self.text
@@ -19,9 +21,8 @@ class Poem:
         return self.similarity
 
     def calculate_similarity(self):
-        nlp = spacy.load("en_core_web_lg")
-        description_word = nlp("beautiful")
-        line = nlp(self.text)
+        description_word = self.nlp(self.description_word)
+        line = self.nlp(self.text)
         if line.vector_norm:
             self.similarity = (description_word.similarity(line))
         else:
