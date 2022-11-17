@@ -5,6 +5,7 @@ from poem import Poem
 from verse import Verse
 from autocorrect import Speller
 from wordhoard import Synonyms
+import string
 
 
 class GeneratePoem:
@@ -52,10 +53,14 @@ class GeneratePoem:
     def get_most_similar_poem_score(self):
         return self.most_similar_poem_score
 
+    def get_most_similar_poem_text(self):
+        return self.most_similar_poem_text
+
     def get_description_word(self):
         return self.description_word
 
     def generate_frost(self):
+        probability = 0.7
         count = 0
         temp = self.all_verses
         new_poem = []
@@ -71,15 +76,22 @@ class GeneratePoem:
                     random_verse = random.choice(temp)
                     random_similarity = random_verse.get_similarity()
                 random_verses.append(random_verse.get_text().strip().lower())
-                two_pair += 1
-                temp.remove(random_verse)
+                if random.random() < probability:
+                    two_pair += 1
+                    temp.remove(random_verse)
+                else:
+                    two_pair += 2
+                    temp.remove(random_verse)
             new_poem.append(
                 self.merge_lines(random_verses, self.description_word))
+
             count += 1
         return new_poem
 
     def merge_lines(self, verses, description_word):
         print(verses)
+        if len(verses) == 1:
+            return verses[0]
         nlp = spacy.load("en_core_web_lg")
         first_verse = nlp(verses[0])
         second_verse = nlp(verses[1])
@@ -111,29 +123,31 @@ class GeneratePoem:
             print("CHANGED")
             print("before synonyms === ", verse)
             synonyms = Synonyms(word).find_synonyms()
-            random_index = random.randint(0, 10)
+            random_index = random.randint(0, 20)
             synonym = synonyms[random_index].strip()
             while synonym in final_poem:
-                random_index = random.randint(0, 10)
+                random_index = random.randint(0, 20)
                 synonym = synonyms[random_index].strip()
             verse = verse.replace(random.choice(first_verse_nouns), synonym)
             print("after synonyms === ", verse)
             return verse
         return verse
 
-    def clean_poem(self, new_poem):
+    def clean_poem_add_synonyms(self, new_poem):
         spell = Speller()
+        probability = 0.5
         final_poem = ""
         for line in new_poem:
-            line = line.replace(".", "")
-            line = line.replace(",", "")
-            line = line.replace("'", "")
-            line = line.replace("and ", "")
-            line = self.input_synonyms(line, self.word, final_poem)
+            for character in string.punctuation:
+                if character == "'":
+                    continue
+                line = line.replace(character, '')
+            if random.random() > probability:
+                line = self.input_synonyms(line, self.word, final_poem)
             # print(line)
             new_line = spell(line)
             # print(new_line)
-            final_poem += new_line + ",\n"
+            final_poem += new_line + "\n"
         return final_poem
 
     def __str__(self):
