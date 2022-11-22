@@ -5,6 +5,14 @@ import os
 
 
 def main():
+    """
+    Main function that runs the entire robot process. Most of the text/methods
+    here are fairly self-explanatory. Basically it creates a generate_poem
+    object and calls the necessary methods in generate_poem to create new
+    Frost inspired poem. Also print's a bunch of dialogue so that the interface
+    (i.e. Robot Frost) can communicate with the user.
+    """
+    # Start of process
     nlp = spacy.load("en_core_web_lg")
     text = "I really like Robert Frost, so much so that I think I can " \
            "write just like him!\nIn fact, I have a special power that " \
@@ -14,9 +22,11 @@ def main():
            "better (Inspired by Frost, of course)!\n"
     print(text)
     word = input("So, what word is inspiring you?\n")
+
     gp = GeneratePoem(word, nlp)
     poems = gp.make_poems()
 
+    # Print most similar Frost poem
     gp.most_similar_poem(poems)
     best_poem_score = gp.get_most_similar_poem_score()
     print("\nThis is Frost's most similar poem to your word:\n")
@@ -30,6 +40,7 @@ def main():
 
     final_poem = gp.clean_poem_add_synonyms(new_poem)
 
+    # Print newly generated poem and similarity score
     print("\nHere's my new poem:\n")
     print("~" * 40, "\n")
     print(final_poem[:-1])
@@ -45,7 +56,7 @@ def main():
 
     # Read poem out loud
     engine = pyttsx3.init()
-    engine.setProperty('rate', 125)
+    engine.setProperty('rate', 130)
     engine.say(final_poem)
     engine.runAndWait()
 

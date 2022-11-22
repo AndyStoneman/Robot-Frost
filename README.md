@@ -8,13 +8,19 @@ Github Link: https://github.com/AndyStoneman/M6-PoetrySlam
 ### Sources:
 
 Web Scraping source: https://towardsdatascience.com/creating-a-poems-generator-using-word-embeddings-bcc43248de4f
-Autocorrect: https://github.com/filyp/autocorrect
+Autocorrect source: https://github.com/filyp/autocorrect
 Inspiring articles:
 1) https://arxiv.org/abs/2002.02511
+   I chose this source because I liked the idea of "dream poetry," where we can create poetry based on particular 
+   emotions or themes, which I think is something I try and do in my system.
 2) https://www.aaai.org/Papers/Workshops/2006/WS-06-04/WS06-04-010.pdf
+   While I didn't use any of the actual computation ideas from this paper, I was inspired by the idea of a
+   computationally produced poem conveying some type of desired meaning, which I tried to incorporate in my system too.
 3) http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/095-Colton.pdf
-
-// Write why I chose these sources
+   This paper gave me an idea for how to actually go about implementing my system once I had the idea. While my system 
+   is certainly not anywhere close to as complex as the system in the paper, I liked the idea of analyzing something
+   as a base, using it to find something that already exists (such as an article, or in my case, a Frost poem), and
+   then ultimately generates something new based on the same dataset!
 
 ### Description
 
@@ -40,7 +46,7 @@ Here's how the system works:
       2) Add a random original Frost line that exceeds the threshold (threshold is same as above).
    2) At specified probability, replace either noun or verb in line with synonym or synonymous phrase.
 4) Return new poem that is inspired by Frost and ideally more similar to the inputted word than the most similar 
-already existing Frost poem. 
+already existing Frost poem. This is a critical self-evaluation step!
 5) Read poem aloud.
 6) Ask user if they like poem, and if so save it. If not, ask if they want to try again.
 
@@ -50,5 +56,13 @@ It's simple, just make sure you have all necessary packages, and then run main()
 
 ### Challenges
 
-// To do
-
+This system was VERY challenging. I spent a ton of time trying to first figure out exactly what I wanted to do, and 
+then figuring out how to actually implement it. A lot of the frustrating parts came from trying to get certain packages
+to work, but also trying to create a reasonable end product. I had to learn how to do a bunch of new things, including
+spaCy stuff, web scraping, nlp, among others, and then had to remember a lot of coding skills from the past. Another
+really challenging aspect was the amount of debugging I had to do, as I was constantly getting errors throughout the
+process of implementing. Trying to quickly figure out errors was quite difficult at times! Last, I think one of the 
+hardest parts was to ultimately create a Frost inspired poem that was somewhat coherent. I made a ton of changes before
+getting something that was (usually) reasonable to read! Overall, I think I learned a lot about computer science things,
+but also about myself, in that I was able to overcome some pretty stressful moments throughout the development of this
+system. So to finally see the entire system come together now is really awesome!
