@@ -38,7 +38,7 @@ poetry style, as sometimes the output works very well, and other times, well, yo
 Here's how the system works:
 1) Scrape the web for a ton of Robert Frost poetry content, and save it into a csv file. 
 2) Take in a user-inputted descriptive word and determine the most similar Frost poem to the word.
-3) Generate new poem that has a higher similarity ranking to the inputted word than one of the initially inputted poems
+3) Generate new poem that has a higher similarity ranking to the inputted word than one of the initially inputted poems:
    1) At particular probability either execute:
       1) Randomly select two lines until both are above a similarity threshold (the threshold is based on the most 
       similar already existing Frost poem) to the user-inputted word. Then combine the two verses to form a new child 
