@@ -44,7 +44,7 @@ Here's how the system works:
       similar already existing Frost poem) to the user-inputted word. Then combine the two verses to form a new child 
       verse. Repeat until desired number of lines reached, careful to not repeat any lines already used. 
       2) Add a random original Frost line that exceeds the threshold (threshold is same as above).
-   2) At specified probability, replace either noun or verb in line with synonym or synonymous phrase.
+   2) At specified probability, replace noun in line with synonym or synonymous phrase.
 4) Return new poem that is inspired by Frost and ideally more similar to the inputted word than the most similar 
 already existing Frost poem. This is a critical self-evaluation step!
 5) Read poem aloud.
