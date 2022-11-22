@@ -2,7 +2,13 @@ import urllib.request
 from bs4 import BeautifulSoup
 import pandas as pd
 
+"""
+This is a script taken from:
+https://towardsdatascience.com/creating-a-poems-generator-using-word-embeddings-bcc43248de4f
 
+I used it to grab Robert Frost poems from "mypoeticside.com". This is NOT
+original work. 
+"""
 # this trick the server to think that we are connecting from a web browser
 class AppURLopener(urllib.request.FancyURLopener):
     version = "Mozilla/5.0"

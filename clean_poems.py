@@ -1,12 +1,17 @@
 import os
 import pandas as pd
-import numpy as np
 import re
-import spacy
 
 
 # function that split the poems in sentences, clean them and save them to a  *.csv
 def docs_to_sentences(file, split=r"\n"):
+    """
+    This is also a script taken from:
+    https://towardsdatascience.com/creating-a-poems-generator-using-word-embeddings-bcc43248de4f
+
+    I used it to clean the Robert Frost poems from "mypoeticside.com" and place
+    them into a .csv file. Again, this is NOT original work.
+    """
     path = os.getcwd()
     df_docs = pd.read_csv(path + "/" + file)
     number_docs = df_docs.shape[0]
