@@ -1,8 +1,8 @@
-# Mission 6
+# Robot Frost
 Github Link: https://github.com/AndyStoneman/M6-PoetrySlam
 
-## System Name: Robot Frost
-### Submission Date: 11/17/2022
+# System Name: Robot Frost
+### Last Worked on Date: 11/17/2022
 
 ## Project Description:
 ### Sources:
